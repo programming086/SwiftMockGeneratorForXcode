@@ -193,12 +193,14 @@ class StructureBuilderTests: XCTestCase {
     // MARK: - Helpers
 
     private func getProtocolString() -> String {
-        return "protocol Protocol: Inherited {" + "\n" +
-            "    " + "\n" +
-            "    var property: String { get set }" + "\n" +
-            "    " + "\n" +
-            "    func method()" + "\n" +
-            "}"
+        return """
+protocol Protocol: Inherited {
+    
+    var property: String { get set }
+    
+    func method()
+}
+"""
     }
 
     private func getProtocolLength() -> Int64 {
@@ -215,88 +217,104 @@ class StructureBuilderTests: XCTestCase {
     }
 
     private func getClassString() -> String {
-        return "class A: B {" + "\n" +
-            "    " + "\n" +
-            "    var varA: String = \"varAResult\"" + "\n" +
-            "    var varB: String {" + "\n" +
-            "        return \"varBResult\"" + "\n" +
-            "    }" + "\n" +
-            "    var varC: String {" + "\n" +
-            "        set {" + "\n" +
-            "            " + "\n" +
-            "        }" + "\n" +
-            "        get {" + "\n" +
-            "            return \"varCResult\"" + "\n" +
-            "        }" + "\n" +
-            "    }" + "\n" +
-            "    " + "\n" +
-            "    func methodA() -> String {" + "\n" +
-            "        return \"methodAResult\"" + "\n" +
-            "    }" + "\n" +
-            "    " + "\n" +
-            "    func methodB(labelA nameA: String, labelB: String) {" + "\n" +
-            "        var methodVarA = \"methodVarAResult\"" + "\n" +
-            "    }" + "\n" +
-            "}"
+        return """
+class A: B {
+    
+    var varA: String = \"varAResult\"
+    var varB: String {
+        return \"varBResult\"
+    }
+    var varC: String {
+        set {
+            
+        }
+        get {
+            return \"varCResult\"
+        }
+    }
+    
+    func methodA() -> String {
+        return \"methodAResult\"
+    }
+    
+    func methodB(labelA nameA: String, labelB: String) {
+        var methodVarA = \"methodVarAResult\"
+    }
+}
+"""
     }
 
     private func getNestedClassString() -> String {
-        return "class A {" + "\n" +
-            "    " + "\n" +
-            "    class B: C, D {" + "\n" +
-            "" + "\n" +
-            "        func innerMethodA() {}" + "\n" +
-            "    }" + "\n" +
-            "" + "\n" +
-            "    func methodA() {}" + "\n" +
-            "}"
+        return """
+class A {
+    
+    class B: C, D {
+
+        func innerMethodA() {}
+    }
+
+    func methodA() {}
+}
+"""
     }
 
     private func getInheritedTypesExampleString() -> String {
-        return "protocol Protocol: SimpleInheritedType, Generic<String>  ,  snake_case {" + "\n" +
-            "" + "\n" +
-            "}"
+        return """
+protocol Protocol: SimpleInheritedType, Generic<String>  ,  snake_case {
+
+}
+"""
     }
 
     private func getNoInheritedTypesExampleString() -> String {
-        return "protocol Protocol {" + "\n" +
-            "" + "\n" +
-            "}"
+        return """
+protocol Protocol {
+
+}
+"""
     }
 
     private func getRealisticNameExampleString() -> String {
-        return "class MockProtocol: Protocol {" + "\n" +
-            "" + "\n" +
-            "}"
+        return """
+class MockProtocol: Protocol {
+
+}
+"""
     }
 
     private func getNewlineTypesExampleString() -> String {
-        return "class AClass: ProtocolA ," + "\n" +
-            "Prot" + "\n" +
-            "{" + "\n" +
-            "}"
+        return """
+class AClass: ProtocolA ,
+Prot
+{
+}
+"""
     }
 
     private func getMultipleTypeExampleString() -> String {
-        return "protocol ProtocolA {}" + "\n" +
-            "" + "\n" +
-            "class ClassA: ProtocolA {}"
+        return """
+protocol ProtocolA {}
+
+class ClassA: ProtocolA {}
+"""
     }
 
     private func getMethodsExampleString() -> String {
-        return "protocol TestProtocol {" + "\n" +
-            "  func protocolMethod()" + "\n" +
-            "}" + "\n" +
-            "" + "\n" +
-            "class TestClass {" + "\n" +
-            "  func method() {" + "\n" +
-            "    func nestedMethod() {}" + "\n" +
-            "  }" + "\n" +
-            "  class func classMethod() {}" + "\n" +
-            "  static func staticMethod() {}" + "\n" +
-            "}" + "\n" +
-            "" + "\n" +
-            "func globalMethod() {}"
+        return """
+protocol TestProtocol {
+  func protocolMethod()
+}
+
+class TestClass {
+  func method() {
+    func nestedMethod() {}
+  }
+  class func classMethod() {}
+  static func staticMethod() {}
+}
+
+func globalMethod() {}
+"""
     }
 
     private func getReturnMethodsExampleString() -> String {

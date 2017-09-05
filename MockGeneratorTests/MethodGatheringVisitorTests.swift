@@ -36,9 +36,11 @@ class MethodGatheringVisitorTests: XCTestCase {
     }
 
     private func getProtocolString() -> String {
-        return "protocol TestProtocol {" + "\n" +
-            "  func method()" + "\n" +
-            "  func method2(label name: Type) -> String" + "\n" +
-            "}"
+        return """
+protocol TestProtocol {
+  func method()
+  func method2(label name: Type) -> String
+}
+"""
     }
 }
